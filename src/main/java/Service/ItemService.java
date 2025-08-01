@@ -28,8 +28,10 @@ public class ItemService {
         existente.setNome(novoItem.getNome());
         existente.setQuantidade(novoItem.getQuantidade());
         existente.setComprado(novoItem.getComprado());
+
         return itemRepository.save(novoItem);
     }
 
+    
   
 }
