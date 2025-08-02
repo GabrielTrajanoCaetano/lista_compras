@@ -3,7 +3,7 @@ package Controller.request;
 import lombok.Getter;
 
 @Getter
-public class ItemRequest {
+public class AddItemRequest {
 
     private String nome;
 }
