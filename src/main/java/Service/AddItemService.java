@@ -5,14 +5,19 @@ import Controller.response.ItemResponse;
 import domain.Item;
 import repository.ItemRepository;
 
+import static Mapper.ItemMapper.toEntity;
 import static Mapper.ItemMapper.toResponse;
 
-public class AddItem {
-    private Item item;
+
+public class AddItemService {
 
     private ItemRepository itemRepository;
 
+    private AddItemRequest addItemRequest;
+
     public ItemResponse addItem(AddItemRequest request){
+
+            Item item = toEntity(request);
 
             itemRepository.save(item);
 

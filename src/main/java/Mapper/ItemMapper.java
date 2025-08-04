@@ -3,6 +3,8 @@ package Mapper;
 import Controller.request.AddItemRequest;
 import Controller.response.ItemResponse;
 import domain.Item;
+import org.springframework.context.annotation.Configuration;
+
 
 public class ItemMapper {
 
