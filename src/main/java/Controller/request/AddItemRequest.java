@@ -6,4 +6,6 @@ import lombok.Getter;
 public class AddItemRequest {
 
     private String nome;
+    private Integer quantidade;
+    private Boolean comprado;
 }
