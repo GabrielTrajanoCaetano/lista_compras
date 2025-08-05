@@ -1,30 +1,31 @@
-package domain;
+package lista_compra_piscou_comprou.com.br.lista_de_compras.domain;
 
 import jakarta.persistence.*;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Getter
 @Setter
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "Item")
 public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Item_ID")
+    @Column(name = "id")
     private Long id;
 
-    @Column(name = "Nome_produto")
+    @Column(name = "nome")
     private String nome;
 
-    @Column(name = "Quantidade_produto")
+    @Column(name = "quantidade")
     private Integer quantidade;
 
-    @Column(name = "Comprado:")
+    @Column(name = "comprado")
     private Boolean comprado;
 
     private boolean isActive = true;
+
 
 }

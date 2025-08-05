@@ -1,4 +1,4 @@
-package Controller.response;
+package lista_compra_piscou_comprou.com.br.lista_de_compras.Controller.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Builder;

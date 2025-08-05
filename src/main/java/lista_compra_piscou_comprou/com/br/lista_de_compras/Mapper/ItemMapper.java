@@ -1,9 +1,8 @@
-package Mapper;
+package lista_compra_piscou_comprou.com.br.lista_de_compras.Mapper;
 
-import Controller.request.AddItemRequest;
-import Controller.response.ItemResponse;
-import domain.Item;
-import org.springframework.context.annotation.Configuration;
+import lista_compra_piscou_comprou.com.br.lista_de_compras.Controller.request.AddItemRequest;
+import lista_compra_piscou_comprou.com.br.lista_de_compras.Controller.response.ItemResponse;
+import lista_compra_piscou_comprou.com.br.lista_de_compras.domain.Item;
 
 
 public class ItemMapper {
