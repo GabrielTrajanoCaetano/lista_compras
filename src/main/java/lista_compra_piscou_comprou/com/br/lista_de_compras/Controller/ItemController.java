@@ -3,12 +3,12 @@ package lista_compra_piscou_comprou.com.br.lista_de_compras.Controller;
 import lista_compra_piscou_comprou.com.br.lista_de_compras.Controller.request.AddItemRequest;
 import lista_compra_piscou_comprou.com.br.lista_de_compras.Controller.request.EditItemRequest;
 import lista_compra_piscou_comprou.com.br.lista_de_compras.Controller.response.ItemResponse;
-import lista_compra_piscou_comprou.com.br.lista_de_compras.Service.AddItemService;
-import lista_compra_piscou_comprou.com.br.lista_de_compras.Service.ChangeIsActiveItemService;
-import lista_compra_piscou_comprou.com.br.lista_de_compras.Service.GetItemByIdService;
-import lista_compra_piscou_comprou.com.br.lista_de_compras.Service.UpdateItemService;
+import lista_compra_piscou_comprou.com.br.lista_de_compras.Service.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/Item")
@@ -21,6 +21,9 @@ public class ItemController {
     private ChangeIsActiveItemService changeIsActiveItemService;
 
     @Autowired
+    private GetAllItemService getAllItemService;
+
+    @Autowired
     private GetItemByIdService getItemByIdService;
 
     @Autowired
@@ -31,13 +34,19 @@ public class ItemController {
         return addItemService.addItem(request);
     }
 
-   @PatchMapping("/{id}")
-   public ItemResponse changeIsActive(@PathVariable Long id, @RequestParam Boolean isActive){
-        return changeIsActiveItemService.changeIsActive(id, isActive);
+   @PatchMapping("/{id}/changeIsActive")
+   public ResponseEntity<ItemResponse> changeIsActive(@PathVariable Long id){
+        ItemResponse response = changeIsActiveItemService.changeIsActive(id);
+        return ResponseEntity.ok(response);
    }
 
-    @GetMapping("/{id}")
-    public ItemResponse getItemById(@PathVariable Long id, @RequestParam Boolean isActive ){
+   @GetMapping("/getAll")
+   public List<ItemResponse> getAllItem(){
+        return getAllItemService.getAllItens();
+   }
+
+    @GetMapping("/{id:\\d+}")
+    public ItemResponse getItemById(@PathVariable Long id){
         return getItemByIdService.getItemById(id);
     }
 

@@ -25,7 +25,7 @@ public class Item {
     @Column(name = "comprado")
     private Boolean comprado;
 
-    private boolean isActive = true;
+    private Boolean isActive = true;
 
 
 }

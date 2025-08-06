@@ -10,6 +10,8 @@ public class ItemMapper {
     public static Item toEntity(AddItemRequest request){
         return Item.builder()
                 .nome(request.getNome())
+                .quantidade(request.getQuantidade())
+                .comprado(request.getComprado())
                 .build();
     }
 
@@ -19,6 +21,7 @@ public class ItemMapper {
                 .nome(domain.getNome())
                 .quantidade(domain.getQuantidade())
                 .comprado(domain.getComprado())
+                .isActive(domain.getIsActive())
                 .build();
     }
 }

@@ -13,4 +13,5 @@ public class ItemResponse {
     private String nome;
     private Integer quantidade;
     private Boolean comprado;
+    private Boolean isActive = true;
 }
