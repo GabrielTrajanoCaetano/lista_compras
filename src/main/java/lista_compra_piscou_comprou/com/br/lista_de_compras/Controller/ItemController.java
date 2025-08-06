@@ -21,7 +21,7 @@ public class ItemController {
     private ChangeIsActiveItemService changeIsActiveItemService;
 
     @Autowired
-    private GetAllItemService getAllItemService;
+    private GetAllItemActiveService getAllItemActiveService;
 
     @Autowired
     private GetItemByIdService getItemByIdService;
@@ -30,28 +30,28 @@ public class ItemController {
     private UpdateItemService updateItemService;
 
     @PostMapping
-    public ItemResponse addItem(@RequestBody AddItemRequest request){
+    public ItemResponse addItem(@RequestBody AddItemRequest request) {
         return addItemService.addItem(request);
     }
 
-   @PatchMapping("/{id}/changeIsActive")
-   public ResponseEntity<ItemResponse> changeIsActive(@PathVariable Long id){
+    @PatchMapping("/{id}/changeIsActive")
+    public ResponseEntity<ItemResponse> changeIsActive(@PathVariable Long id) {
         ItemResponse response = changeIsActiveItemService.changeIsActive(id);
         return ResponseEntity.ok(response);
-   }
+    }
 
-   @GetMapping("/getAll")
-   public List<ItemResponse> getAllItem(){
-        return getAllItemService.getAllItens();
-   }
+    @GetMapping("/getAll")
+    public List<ItemResponse> getAllItem() {
+        return getAllItemActiveService.getAllItens();
+    }
 
     @GetMapping("/{id:\\d+}")
-    public ItemResponse getItemById(@PathVariable Long id){
+    public ItemResponse getItemById(@PathVariable Long id) {
         return getItemByIdService.getItemById(id);
     }
 
     @PutMapping("/{id}")
-    public ItemResponse updateItem(@PathVariable Long id, @RequestBody EditItemRequest request){
+    public ItemResponse updateItem(@PathVariable Long id, @RequestBody EditItemRequest request) {
         return updateItemService.update(id, request);
     }
 }

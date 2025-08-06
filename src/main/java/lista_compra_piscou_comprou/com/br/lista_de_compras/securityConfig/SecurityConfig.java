@@ -4,8 +4,8 @@ package lista_compra_piscou_comprou.com.br.lista_de_compras.securityConfig;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -27,10 +27,12 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.POST, "/item").permitAll()
                         .anyRequest().authenticated()
                 )
-                .httpBasic(httpBasic -> {});
+                .httpBasic(httpBasic -> {
+                });
 
         return http.build();
     }
+
     @Bean
     public UserDetailsService userDetailsService(PasswordEncoder passwordEncoder) {
         UserDetails user = User.builder()

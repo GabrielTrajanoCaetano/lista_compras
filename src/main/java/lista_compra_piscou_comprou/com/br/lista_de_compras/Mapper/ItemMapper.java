@@ -7,7 +7,7 @@ import lista_compra_piscou_comprou.com.br.lista_de_compras.domain.Item;
 
 public class ItemMapper {
 
-    public static Item toEntity(AddItemRequest request){
+    public static Item toEntity(AddItemRequest request) {
         return Item.builder()
                 .nome(request.getNome())
                 .quantidade(request.getQuantidade())
@@ -15,7 +15,7 @@ public class ItemMapper {
                 .build();
     }
 
-    public static ItemResponse toResponse(Item domain){
+    public static ItemResponse toResponse(Item domain) {
         return ItemResponse.builder()
                 .id(domain.getId())
                 .nome(domain.getNome())

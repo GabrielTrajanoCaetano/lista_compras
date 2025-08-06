@@ -12,16 +12,18 @@ import java.util.stream.Collectors;
 import static lista_compra_piscou_comprou.com.br.lista_de_compras.Mapper.ItemMapper.toResponse;
 
 @Service
-public class GetAllItemService {
+public class GetAllItemActiveService {
 
     @Autowired
     private ItemRepository itemRepository;
 
-    public List<ItemResponse> getAllItens(){
+    public List<ItemResponse> getAllItens() {
+
         List<Item> items = itemRepository.findAll();
         List<ItemResponse> responses = items.stream()
-                                           .map(item -> toResponse(item))
-                                           .collect(Collectors.toList());
+                .filter(item -> item.getIsActive().equals(true))
+                .map(item -> toResponse(item))
+                .collect(Collectors.toList());
 
         return responses;
 

@@ -16,7 +16,7 @@ public class ChangeIsActiveItemService {
     @Autowired
     private ItemRepository itemRepository;
 
-    public ItemResponse changeIsActive(Long id){
+    public ItemResponse changeIsActive(Long id) {
 
         Item item = itemRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Item não encontrado"));
