@@ -1,5 +1,6 @@
 package lista_compra_piscou_comprou.com.br.lista_de_compras.Controller.request;
 
+import lista_compra_piscou_comprou.com.br.lista_de_compras.domain.ItemCategory;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,6 +9,10 @@ import lombok.Setter;
 public class AddItemRequest {
 
     private String nome;
+
     private Integer quantidade;
+
     private Boolean comprado;
+
+    private Long itemCategoryId;
 }
