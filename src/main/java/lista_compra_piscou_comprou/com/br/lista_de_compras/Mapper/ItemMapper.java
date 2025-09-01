@@ -4,10 +4,7 @@ import lista_compra_piscou_comprou.com.br.lista_de_compras.Controller.request.Ad
 import lista_compra_piscou_comprou.com.br.lista_de_compras.Controller.response.ItemResponse;
 import lista_compra_piscou_comprou.com.br.lista_de_compras.domain.Item;
 import lista_compra_piscou_comprou.com.br.lista_de_compras.domain.ItemCategory;
-import lista_compra_piscou_comprou.com.br.lista_de_compras.repository.ItemCategoryRepository;
-import lista_compra_piscou_comprou.com.br.lista_de_compras.repository.ItemRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-
+import lista_compra_piscou_comprou.com.br.lista_de_compras.Mapper.ItemCategoryMapper;
 
 public class ItemMapper {
 
@@ -27,7 +24,7 @@ public class ItemMapper {
                 .quantidade(domain.getQuantidade())
                 .comprado(domain.getComprado())
                 .isActive(domain.getIsActive())
-                .itemCategory()
+                .itemCategory(ItemCategoryMapper.toResponse(domain.getItemCategory()))
                 .build();
     }
 }

@@ -20,5 +20,5 @@ public class ItemResponse {
 
     private Boolean isActive;
 
-    private ItemCategory itemCategory;
+    private ItemCategoryResponse itemCategory;
 }

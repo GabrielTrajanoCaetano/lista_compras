@@ -15,6 +15,4 @@ public class ItemCategoryResponse {
     private Long id;
 
     private String nome;
-
-    private List<Item> itens;
 }
